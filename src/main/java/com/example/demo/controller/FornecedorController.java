@@ -11,25 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Cliente;
-import com.example.demo.repository.ClienteRepository;
+import com.example.demo.model.Fornecedor;
+import com.example.demo.repository. FornecedorRepository;
 
 @RestController
-@RequestMapping("/clientes")
-public class ClienteController {
+@RequestMapping("/fornecedores")
+public class FornecedorController {
 	
 	@Autowired
-	private ClienteRepository clienterepository;
-	
+	private FornecedorRepository fornecedorepository;
+
 	@GetMapping
-	public List<Cliente> listar(){
-		return clienterepository.findAll();
+	public List<Fornecedor> listar(){
+		return fornecedorepository.findAll();
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente adicionar(@RequestBody Cliente cliente){
-		return clienterepository.save(cliente);
+	public Fornecedor adicionar(@RequestBody Fornecedor fornecedor){
+		return fornecedorepository.save(fornecedor);
 	}
-
 }

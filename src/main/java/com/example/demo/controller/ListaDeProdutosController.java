@@ -11,25 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Cliente;
-import com.example.demo.repository.ClienteRepository;
+import com.example.demo.model.ListaDeProdutos;
+import com.example.demo.repository.ListaDeProdutosRepository;
 
 @RestController
-@RequestMapping("/clientes")
-public class ClienteController {
+@RequestMapping("/listadeprodutos")
+public class ListaDeProdutosController {
 	
 	@Autowired
-	private ClienteRepository clienterepository;
+	private ListaDeProdutosRepository listadeprodutosrepository;
 	
 	@GetMapping
-	public List<Cliente> listar(){
-		return clienterepository.findAll();
+	public List<ListaDeProdutos> listar(){
+		return listadeprodutosrepository.findAll();
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente adicionar(@RequestBody Cliente cliente){
-		return clienterepository.save(cliente);
+	public ListaDeProdutos adicionar(@RequestBody ListaDeProdutos listadeprodutos){
+		return listadeprodutosrepository.save(listadeprodutos);
 	}
 
 }
